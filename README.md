@@ -4,7 +4,9 @@ Repository pubblico ufficiale delle release binarie per **CEIART Light Controlle
 
 Il codice sorgente non e' pubblicato in questo repository. I file compilati sono disponibili nella sezione **Releases**.
 
-Versione corrente: **2.4.3**.
+Versione stabile per il vecchio layout 4 MB: **2.4.3**.
+
+Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
 La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release piu' recente utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio.
 
@@ -15,8 +17,16 @@ La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.b
 
 Per l'aggiornamento dalla pagina web della scheda utilizzare esclusivamente il file `.update.bin`.
 
+## Conversione una tantum alla versione 2.5.0
+
+La versione 2.5.0 utilizza tutti i 16 MB fisicamente presenti sulla scheda e introduce due slot OTA da 6,25 MiB. Il primo passaggio da una versione 2.4.x richiede il file completo `CEIART-Light-Controller-v2.5.0.merged.bin`, caricato via USB a partire dall'indirizzo `0x0000`.
+
+La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modifica la tabella delle partizioni e non deve essere usato per questo primo passaggio. La release 2.5.0 e' pubblicata come pre-release e non viene proposta automaticamente alle schede con layout 4 MB.
+
+Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
+
 Ogni allegato di release include nel servizio GitHub il proprio digest SHA-256, verificato dal firmware prima del riavvio quando si usa l'aggiornamento automatico.
 
 ## Prima versione con aggiornamento via LAN
 
-La versione `2.4.0` introduce la pagina **Aggiornamento firmware** riservata all'amministratore. Le versioni successive, compresa la `2.4.3`, possono essere installate direttamente dalla pagina web.
+La versione `2.4.0` introduce la pagina **Aggiornamento firmware** riservata all'amministratore. Le versioni fino alla `2.4.3` usano il vecchio layout 4 MB; la `2.5.0` richiede la conversione USB descritta sopra.
