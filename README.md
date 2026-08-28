@@ -30,6 +30,11 @@ porta USB: `netinfo`, `setfallback`, `setstatic`, `setdhcp` e `help`.
 Il comando `help` mostra i comandi pubblici ma non espone il comando
 riservato al ripristino delle password.
 
+I comandi pubblici non richiedono la chiave di manutenzione; la chiave resta
+utilizzata esclusivamente dal comando segreto di ripristino delle password.
+Le forme complete sono ordinate come `IP SUBNET GATEWAY DNS`, nello stesso
+ordine delle impostazioni di rete di Windows.
+
 La revisione corrente accetta anche `setstatic IP` e `setfallback IP`: usa
 automaticamente subnet `/24`, il gateway salvato se compatibile oppure
 l'indirizzo `.254` della rete, e il DNS salvato. La forma completa controlla
