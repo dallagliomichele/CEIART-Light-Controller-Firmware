@@ -25,6 +25,11 @@ La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modif
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
 
+La build 2.5.0 sostitutiva aggiunge anche la manutenzione Ethernet dalla
+porta USB: `netinfo`, `setfallback`, `setstatic`, `setdhcp` e `help`.
+Il comando `help` mostra i comandi pubblici ma non espone il comando
+riservato al ripristino delle password.
+
 Ogni allegato di release include nel servizio GitHub il proprio digest SHA-256, verificato dal firmware prima del riavvio quando si usa l'aggiornamento automatico.
 
 ## Prima versione con aggiornamento via LAN
