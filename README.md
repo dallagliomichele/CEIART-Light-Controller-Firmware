@@ -30,6 +30,12 @@ porta USB: `netinfo`, `setfallback`, `setstatic`, `setdhcp` e `help`.
 Il comando `help` mostra i comandi pubblici ma non espone il comando
 riservato al ripristino delle password.
 
+La revisione corrente accetta anche `setstatic IP` e `setfallback IP`: usa
+automaticamente subnet `/24`, il gateway salvato se compatibile oppure
+l'indirizzo `.254` della rete, e il DNS salvato. La forma completa controlla
+subnet e gateway e impedisce di salvarli se sono stati invertiti. `netinfo`
+mostra IP, subnet, gateway e DNS effettivi e quelli statici/fallback salvati.
+
 Ogni allegato di release include nel servizio GitHub il proprio digest SHA-256, verificato dal firmware prima del riavvio quando si usa l'aggiornamento automatico.
 
 ## Prima versione con aggiornamento via LAN
