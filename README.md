@@ -4,11 +4,13 @@ Repository pubblico ufficiale delle release binarie per **CEIART Light Controlle
 
 Il codice sorgente non e' pubblicato in questo repository. I file compilati sono disponibili nella sezione **Releases**.
 
-Versione stabile per il vecchio layout 4 MB: **2.4.3**.
+Ultima versione per il vecchio layout 4 MB: **2.4.3**.
 
 Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
-La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release piu' recente utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio.
+Versione corrente per il layout 16 MB: **2.5.1**.
+
+La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.5.1 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
 
 ## Quale file usare
 
@@ -25,13 +27,20 @@ La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modif
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
 
+## Versione 2.5.1
+
+La 2.5.1 e' il primo aggiornamento ordinario via LAN per le schede gia'
+convertite al layout 16 MB. Modifica soltanto la dicitura `Comando user` in
+`Comandi consentiti User`, semplifica il reset seriale delle password nel
+comando `resetpwd` senza codice aggiuntivo e conserva configurazione e dati.
+
 La build 2.5.0 sostitutiva aggiunge anche la manutenzione Ethernet dalla
 porta USB: `netinfo`, `setfallback`, `setstatic`, `setdhcp` e `help`.
 Il comando `help` mostra i comandi pubblici ma non espone il comando
 riservato al ripristino delle password.
 
-I comandi pubblici non richiedono la chiave di manutenzione; la chiave resta
-utilizzata esclusivamente dal comando segreto di ripristino delle password.
+Il ripristino delle password si esegue dalla porta USB con il comando
+`resetpwd`, senza codice aggiuntivo; il comando non compare nell'help.
 Le forme complete sono ordinate come `IP SUBNET GATEWAY DNS`, nello stesso
 ordine delle impostazioni di rete di Windows.
 
