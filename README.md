@@ -8,9 +8,9 @@ Ultima versione per il vecchio layout 4 MB: **2.4.3**.
 
 Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
-Versione corrente per il layout 16 MB: **2.5.1**.
+Versione corrente per il layout 16 MB: **2.6.0**.
 
-La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.5.1 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
+La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.0 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
 
 ## Quale file usare
 
@@ -26,6 +26,19 @@ La versione 2.5.0 utilizza tutti i 16 MB fisicamente presenti sulla scheda e int
 La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modifica la tabella delle partizioni e non deve essere usato per questo primo passaggio. La release 2.5.0 e' pubblicata come pre-release e non viene proposta automaticamente alle schede con layout 4 MB.
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
+
+## Versione 2.6.0
+
+La 2.6.0 aggiunge a ogni scheduling i flag indipendenti `Esegui ON` ed
+`Esegui OFF`. Lasciando attivo soltanto OFF, le luci possono essere accese
+manualmente e vengono spente una volta all'orario previsto, senza essere
+riaccese automaticamente dallo scheduling. E' disponibile anche il
+funzionamento ON-only.
+
+Il registro persistente segnala inoltre i riavvii riconosciuti dall'ESP32-S3
+come tensione insufficiente (brownout) o disturbo di alimentazione. La scheda
+non misura il valore esatto della tensione. L'aggiornamento dalla 2.5.1
+conserva configurazione, password, nomi, scheduling, log e stati salvati.
 
 ## Versione 2.5.1
 
