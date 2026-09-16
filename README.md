@@ -8,9 +8,9 @@ Ultima versione per il vecchio layout 4 MB: **2.4.3**.
 
 Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
-Versione corrente per il layout 16 MB: **2.6.0**.
+Versione corrente per il layout 16 MB: **2.6.1**.
 
-La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.0 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
+La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.1 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
 
 ## Quale file usare
 
@@ -26,6 +26,19 @@ La versione 2.5.0 utilizza tutti i 16 MB fisicamente presenti sulla scheda e int
 La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modifica la tabella delle partizioni e non deve essere usato per questo primo passaggio. La release 2.5.0 e' pubblicata come pre-release e non viene proposta automaticamente alle schede con layout 4 MB.
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
+
+## Versione 2.6.1
+
+La 2.6.1 aggiunge nelle Impostazioni Generali un controllo di connettivita'
+con ping ICMP. La destinazione iniziale e' il Raspberry Companion
+`172.18.16.57`; se il campo IP viene lasciato vuoto si usa `1.1.1.1`.
+La funzione puo' essere disattivata se la destinazione non risponde ai ping.
+
+Dopo tre ping consecutivi falliti la scheda prova al massimo due riavvii
+software per episodio, separati da almeno due minuti. La gestione delle luci
+rimane attiva e lo stato dei rele' viene ripristinato dal meccanismo gia'
+presente. Il registro persistente annota guasto, tentativi, ripristino e
+limite raggiunto. L'aggiornamento `.update.bin` conserva configurazione e dati.
 
 ## Versione 2.6.0
 
