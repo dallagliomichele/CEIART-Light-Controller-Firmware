@@ -8,9 +8,9 @@ Ultima versione per il vecchio layout 4 MB: **2.4.3**.
 
 Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
-Versione corrente per il layout 16 MB: **2.6.1**.
+Versione corrente per il layout 16 MB: **2.6.2**.
 
-La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.1 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
+La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.2 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
 
 ## Quale file usare
 
@@ -26,6 +26,13 @@ La versione 2.5.0 utilizza tutti i 16 MB fisicamente presenti sulla scheda e int
 La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modifica la tabella delle partizioni e non deve essere usato per questo primo passaggio. La release 2.5.0 e' pubblicata come pre-release e non viene proposta automaticamente alle schede con layout 4 MB.
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
+
+## Versione 2.6.2
+
+La 2.6.2 corregge la visualizzazione tagliata dei valori numerici nei campi
+`ON offset` e `OFF offset` della tabella scheduling. I campi sono piu' larghi
+e usano margini interni compatti, mantenendo invariati lo scorrimento della
+tabella e il pulsante `Elimina`. L'aggiornamento conserva configurazione e dati.
 
 ## Versione 2.6.1
 
