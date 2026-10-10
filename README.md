@@ -8,9 +8,9 @@ Ultima versione per il vecchio layout 4 MB: **2.4.3**.
 
 Versione di conversione al nuovo layout 16 MB: **2.5.0 pre-release**.
 
-Versione corrente per il layout 16 MB: **2.6.2**.
+Versione corrente per il layout 16 MB: **2.7.0**.
 
-La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.6.2 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
+La cartella `firmware` contiene inoltre `CEIART-Light-Controller-latest.update.bin`: e' la copia della release 2.7.0 utilizzata dal pulsante di aggiornamento della pagina web. Il firmware ne verifica dimensione e SHA-256 confrontandoli con i dati ufficiali della Release prima del riavvio. Questo file richiede che la conversione al layout 16 MB sia gia' stata eseguita.
 
 ## Quale file usare
 
@@ -26,6 +26,21 @@ La versione 2.5.0 utilizza tutti i 16 MB fisicamente presenti sulla scheda e int
 La conversione cancella tutti i dati precedenti. Il file `.update.bin` non modifica la tabella delle partizioni e non deve essere usato per questo primo passaggio. La release 2.5.0 e' pubblicata come pre-release e non viene proposta automaticamente alle schede con layout 4 MB.
 
 Dopo la conversione, gli aggiornamenti successivi torneranno a utilizzare il normale `.update.bin` via LAN.
+
+## Versione 2.7.0
+
+La 2.7.0 aggiunge una pagina amministratore per scaricare e ripristinare un
+backup JSON della configurazione permanente. Sono inclusi account, location,
+coordinate, data/ora, rete, nomi, ingressi, autorizzazioni User e scheduling.
+Sono esclusi registro eventi, stato corrente dei rele', contatori temporanei,
+tentativi di riavvio e informazioni specifiche del chip.
+
+Durante il ripristino si puo' scegliere se importare anche rete e indirizzi
+IP; per impostazione predefinita la rete della scheda sostitutiva viene
+mantenuta. Il file viene validato prima del salvataggio e la scheda si riavvia
+senza importare stati operativi. Il backup contiene le password in chiaro e
+deve essere conservato in un luogo riservato. L'aggiornamento dalla 2.6.2
+conserva configurazione, log e stati.
 
 ## Versione 2.6.2
 
